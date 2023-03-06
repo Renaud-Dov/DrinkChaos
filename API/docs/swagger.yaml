@@ -1,0 +1,190 @@
+swagger: "2.0"
+info:
+  title: Drink Chaos API
+  contact:
+    email: contact@bugbear.fr
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  version: 1.0.0
+basePath: /api/v1
+#schemes:
+#  - https
+#securityDefinitions:
+#  jwt_token:
+#    type: apiKey
+#    name: JWT Token
+#    in: header
+paths:
+  /products:
+    get:
+      summary: Get all drinks
+      description: Get all drinks
+      tags:
+        - Drinks
+      responses:
+        200:
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Drink'
+        401:
+          description: Unauthorized
+        500:
+          description: Internal Server Error
+    post:
+      summary: Create a drink
+      description: Create a drink
+      tags:
+        - Drinks
+      parameters:
+        - name: drink
+          in: body
+          description: Drink to create
+          required: true
+          schema:
+            $ref: '#/definitions/Drink'
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Drink'
+        401:
+          description: Unauthorized
+        500:
+          description: Internal Server Error
+    put:
+      summary: Update a drink
+      description: Update a drink
+      tags:
+        - Drinks
+      parameters:
+        - name: drink
+          in: body
+          description: Drink to update
+          required: true
+          schema:
+            $ref: '#/definitions/Drink'
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Drink'
+        401:
+          description: Unauthorized
+        500:
+          description: Internal Server Error
+    delete:
+      summary: Delete a drink
+      description: Delete a drink
+      tags:
+        - Drinks
+      parameters:
+        - name: drink
+          in: body
+          description: Drink to delete
+          required: true
+          schema:
+            $ref: '#/definitions/Drink'
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Drink'
+        401:
+          description: Unauthorized
+        500:
+          description: Internal Server Error
+  /transactions:
+    get:
+      summary: Get all transactions
+      description: Get all transactions
+      tags:
+        - Transactions
+      responses:
+        200:
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Transaction'
+
+        401:
+          description: Unauthorized
+        500:
+          description: Internal Server Error
+    post:
+      summary: Create a transaction
+      description: Create a transaction
+      tags:
+        - Transactions
+      parameters:
+        - name: transaction
+          in: body
+          description: Transaction to create
+          required: true
+          schema:
+            $ref: '#/definitions/Transaction'
+
+
+
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Transaction'
+        401:
+          description: Unauthorized
+        500:
+          description: Internal Server Error
+    delete:
+      summary: Delete a transaction
+      description: Delete a transaction
+      tags:
+        - Transactions
+      parameters:
+        - name: transaction
+          in: body
+          description: Transaction to delete
+          required: true
+          schema:
+            $ref: '#/definitions/Transaction'
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Transaction'
+        401:
+          description: Unauthorized
+        500:
+          description: Internal Server Error
+
+
+definitions:
+  Drink:
+    type: object
+    properties:
+      id:
+        type: string
+      name:
+        type: string
+      min_price:
+        type: number
+      max_price:
+        type: number
+      crisis_mode:
+        type: boolean
+      crisis_price:
+        type: number
+  Transaction:
+    type: object
+    properties:
+      id:
+        type: string
+      drink_id:
+        type: string
+      price:
+        type: number
+      timestamp:
+        type: string
