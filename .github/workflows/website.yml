@@ -1,13 +1,16 @@
 name: Update Website
 
-on:
-  push:
-    paths:
-      - "Website/**"
 env:
   REGISTRY: ghcr.io
   FOLDER: Website
   IMAGE_NAME: ${{ github.repository }}_${{ env.FOLDER }}
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - "Website/**"
 
 jobs:
   build:
