@@ -2,8 +2,7 @@ name: Update Website
 
 env:
   REGISTRY: ghcr.io
-  FOLDER: Website
-  IMAGE_NAME: ${{ github.repository }}_${{ env.FOLDER }}
+  IMAGE_NAME: ${{ github.repository }}_Website
 
 on:
   push:
@@ -37,7 +36,7 @@ jobs:
         uses: docker/build-push-action@v3.0.0
         with:
           context: .
-          dockerfile: ${{ env.FOLDER }}/Dockerfile
+          dockerfile: Website/Dockerfile
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
