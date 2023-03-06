@@ -9,7 +9,7 @@ import Error404 from "./components/Dashboard/404/404";
 import {Provider} from "./services/data";
 import TransactionsView from "./components/Dashboard/TransactionsView";
 import DrinkView from "./components/Dashboard/DrinkView";
-import Login from "./components/login/Login";
+import Login from "./components/auth/Login";
 
 const root = ReactDOM.createRoot(
     document.getElementById("root") as HTMLElement
