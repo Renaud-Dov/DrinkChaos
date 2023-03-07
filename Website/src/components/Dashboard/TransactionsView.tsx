@@ -11,17 +11,18 @@ const TransactionsView = () => {
 
 
     return (
-        <div className="relative flex-1 flex flex-col p-10">
-            <div className="flex flex-row justify-between">
-                <h1 className="text-4xl font-bold text-white pb-5">Transactions</h1>
-                <h2 className="text-2xl font-bold text-white pb-5">Last update: {timeFormat(last_refresh, time)}</h2>
+        <div className="relative flex-1 flex flex-col p-10 h-screen">
+            <div className="flex flex-row justify-between items-center mb-5">
+                <h1 className="text-3xl md:text-4xl font-bold text-white">Transactions</h1>
+                <h2 className="text-lg md:text-2xl font-bold text-white">Last
+                    update: {timeFormat(last_refresh, time)}</h2>
             </div>
             {transactions ? transactions.length === 0 ?
                     <span className="flex-1 text-white font-Exo2 mx-auto text-3xl">
                         Cannot access drinks data
                     </span>
                     :
-                    <div className="flex flex-1 flex-col gap-5 max-h-full h-full">
+                    <div className="flex flex-1 flex-col gap-5">
                         {transactions.map((transaction, key) => <TransactionRow transaction={transaction} key={key}/>)}
                     </div>
                 :

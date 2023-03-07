@@ -20,7 +20,7 @@ function MenuItem({children, link}:
 export function MenuPanel() {
     return (
         <div
-            className="overflow-y-auto bg-darkBlue flex flex-row md:flex-col md:min-h-screen p-5 justify-between">
+            className="bg-darkBlue flex flex-row md:flex-col p-5 justify-between">
             <div className="flex flex-row md:flex-col md:mt-5 gap-5">
                 <MenuItem link={"/dashboard"}><HomeIcon/></MenuItem>
                 <MenuItem link={"transactions"}><ShoppingCartIcon/></MenuItem>
