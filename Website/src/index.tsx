@@ -3,13 +3,14 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import {BrowserRouter, Navigate, Route, Routes} from "react-router-dom";
-import Dashboard from "./components/Dashboard/Dashboard";
+import DashboardLayout from "./components/Dashboard/DashboardLayout";
 import Layout from "./components/Layout/Layout";
 import Error404 from "./components/Dashboard/404/404";
 import {Provider} from "./services/data";
 import TransactionsView from "./components/Dashboard/TransactionsView";
 import DrinkView from "./components/Dashboard/DrinkView";
 import Login from "./components/auth/Login";
+import Logout from "./components/auth/Logout";
 
 const root = ReactDOM.createRoot(
     document.getElementById("root") as HTMLElement
@@ -22,7 +23,7 @@ root.render(
                 <Layout>
                     <Routes>
                         <Route path="/" element={<Navigate to="/dashboard"/>}/>
-                        <Route path="/dashboard" element={<Dashboard/>}>
+                        <Route path="/dashboard" element={<DashboardLayout/>}>
                             <Route index element={<DrinkView/>}/>
                             <Route path="transactions" element={<TransactionsView/>}/>
                             {/*<Route path="drinks" element={<DrinkCard/>}/>*/}
@@ -30,6 +31,7 @@ root.render(
                             <Route path="*" element={<Error404/>}/>
                         </Route>
                         <Route path="/login" element={<Login/>}/>
+                        <Route path="/logout" element={<Logout/>}/>
                         <Route path="*" element={<Error404/>}/>
                     </Routes>
                 </Layout>
