@@ -6,7 +6,7 @@ const linkGrafana = "https://grafana.bugbear.fr/d/C195J7J4z/prices?orgId=3&refre
 
 function MenuItem({children, link}:
                       { children: ReactNode, link: string, className?: string }) {
-    const baseClass = "flex gap-3 items-center h-7 w-7"
+    const baseClass = "gap-3 items-center h-7 w-7"
 
     const activeClass = `text-white ${baseClass}`
     const inactiveClass = `text-textBlue hover:text-white ${baseClass}`
